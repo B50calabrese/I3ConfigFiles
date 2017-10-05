@@ -26,8 +26,8 @@ set $pureblack #000000
 ######################
 #.class		border		background	text		indicator	child_border
 client.focused	$black		$yellow		$black 		$white          $white
-client.unfocused $white		$black		$yellow		$white          $white
-client.focused_inactive $white	$black		$yellow		$white          $white
+client.unfocused $black 	$black		$yellow		$white          $white
+client.focused_inactive $black	$black		$yellow		$white          $white
 
 new_window normal 1
 
@@ -135,7 +135,8 @@ bindsym $mod+/ exec "~/scripts/spotify_control.sh play"
 bindsym $mod+b exec feh --randomize --bg-scale ~/backgrounds/*
 
 # Wallpaper from sub directory
-bindsym $mod+Shift+b exec i3-input -F 'exec feh --randomize --recursive --bg-scale ~/backgrounds/%s' -P "Subdir:" 
+# bindsym $mod+Shift+b exec i3-input -F 'exec feh --randomize --recursive --bg-scale ~/backgrounds/%s' -P "Subdir:" 
+bindsym $mod+Shift+b mode "background_mode"
 
 # Mark a container using a single character
 bindsym $mod+Shift+m exec i3-input -F 'mark %s' -l 1 -P 'Mark:'
@@ -145,6 +146,9 @@ bindsym $mod+Shift+o exec /usr/bin/eclipse45
 
 # Make the monitors go to the right sides of each other
 exec xrandr --output DP-1 --left-of DVI-I-1
+
+# Take a screenshot upon pressing $mod+x and selecting an area.
+bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
 
 #################
 # Mode Controls #
@@ -171,6 +175,16 @@ mode "resize" {
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# Used to change the background.
+mode "background_mode" {
+  bindsym 1 exec feh --randomize --bg-scale ~/backgrounds/pokemon
+  bindsym 2 exec feh --randomize --bg-scale ~/backgrounds/hearthstone
+  bindsym 3 exec feh --randomize --bg-scale ~/backgrounds/persona
+  bindsym 4 exec feh --randomize --bg-scale ~/backgrounds/wow
+
   bindsym Escape mode "default"
 }
 

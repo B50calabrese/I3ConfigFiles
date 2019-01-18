@@ -35,6 +35,16 @@
 *.color7:       #ffffff
 *.color15:      #ffffff
 
+! Dark Colors
+*.primaryDarkColor: #222222
+
+! Light Colors
+*.primaryLightColor: #ffffff
+
+! Theme Colors
+*.primaryThemeColor: #FAC863
+*.secondaryThemeColor: #C79530
+
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
